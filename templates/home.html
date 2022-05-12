@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>{% block title %}Adoption Agency Home{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="text-center p-3 sticky-top" style="background-color: Tomato">
+      <a href="/" class="nav-link d-inline-block">HOME</a>
+      <a href="/add" class="nav-link d-inline-block">ADD POST</a>
+    </nav>
+    {% block content %}
+    <h1 class="text-center display-1">Pet Finder</h1>
+    {% for msg in get_flashed_messages() %}
+    <p class="flash-msg text-center">{{msg}}</p>
+    {% endfor %}
+    <h2 class="adoption-group-heading text-center display-3">Available</h2>
+    <div class="adoption-group">
+      {% for pet in all_pets if pet.available%}
+      <div class="adoption-item">
+        <h2>{{pet.name}}</h2>
+        <img class="pet-home-img" src="{{pet.photo_url}}" alt="pet image" />
+        <form action="/{{pet.id}}" class="learn-more">
+          <button class="btn btn-outline-primary mt-3 w-100 btn-lg">
+            Learn More
+          </button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+    <h2 class="adoption-group-heading text-center display-3">Adopted</h2>
+    <div class="adoption-group">
+      {% for pet in all_pets if not pet.available%}
+      <div class="adoption-item">
+        <h2>{{pet.name}}</h2>
+        <img class="pet-home-img" src="{{pet.photo_url}}" alt="pet image" />
+        <form action="/{{pet.id}}" class="learn-more">
+          <button class="btn btn-outline-secondary mt-3 w-100 btn-lg">
+            Learn More
+          </button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock %}
+  </body>
+</html>
