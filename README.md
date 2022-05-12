@@ -1,6 +1,6 @@
 # Adoption Agency
 
-<img src='./images/adoption-home' alt='adoption homepage' height='350' width='500'>
+<img src='./images/adoption-home.png' alt='adoption homepage' height='350' width='500'>
 
 ## 🧐 Project Description
 
@@ -8,8 +8,8 @@ This is a mock pet adoption website that uses Flask and Flask-WTForms. Users can
 
 ## 🐾 Pet Profile Page
 
-<img src='./images/adoption-profile' alt='adoption homepage' height='350' width='500'>
+<img src='./images/adoption-profile.png' alt='adoption homepage' height='350' width='500'>
 
 ## 📝 Form Page
 
-<img src='./images/adoption-form' alt='adoption homepage' height='350' width='500'>
+<img src='./images/adoption-form.png' alt='adoption homepage' height='350' width='500'>
